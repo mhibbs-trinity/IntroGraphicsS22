@@ -10,21 +10,21 @@ void draw() {
   //stepSize = float(mouseY)/height + 0.01;
   stepSize = PI/256;
   translate(width/2,height/2);
-  scale(200);
-  //scale(20);
+  //scale(200);
+  scale(20);
   //scale(50);
   stroke(200);
   noFill();
-  strokeWeight(1.0/200);
+  strokeWeight(1.0/20);
   float m = float(mouseX)/width * 10;
   float q = float(mouseY)/height * 10;
   beginShape();
   //for(float t=0; t<map(mouseX, 0,width, 1,50)*PI; t+=stepSize) {
   for(float t=0; t<6*PI; t+=stepSize) {
     //vertex(fx(t,m),fy(t,m));
-    vertex(lx(t,5.0*mouseX/width),ly(t,5.0*mouseY/height));
+    //vertex(lx(t,5.0*mouseX/width),ly(t,5.0*mouseY/height));
     //vertex(bx(t),by(t));
-    //vertex(hx(t,5,q,m), hy(t,5,q,m));
+    vertex(hx(t,5,q,m), hy(t,5,q,m));
   }
   endShape();
   //endShape();
