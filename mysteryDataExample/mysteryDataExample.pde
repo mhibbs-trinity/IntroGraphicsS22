@@ -1,7 +1,7 @@
 
 //Using the Table class & loadTable
 Table dataTable;
-String columnLabel = "Females";
+String columnLabel = "Number";
 int columnMaxTable = 0;
 
 //Using ArrayLists & BufferedReader
