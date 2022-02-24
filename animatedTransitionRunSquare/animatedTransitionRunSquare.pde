@@ -11,6 +11,6 @@ void draw() {
 }
 
 void mouseClicked() {
-  //square.moveTo(mouseX,mouseY);
-  square.moveTo(mouseX,mouseY, 4);
+  square.moveTo(mouseX,mouseY);
+  //square.moveTo(mouseX,mouseY, 4);
 }
