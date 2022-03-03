@@ -65,8 +65,8 @@ void draw() {
     for(int i=0; i<hilbert[level].length(); i++) {
       char c = hilbert[level].charAt(i);
       if(c == 'F') { 
-        line(0,0, 0,-len);
-        //bezier(0,0, -len/2,-len/2, len/2,-len/2, 0,-len);
+        //line(0,0, 0,-len);
+        bezier(0,0, -len/2,-len/2, len/2,-len/2, 0,-len);
         translate(0,-len);
       }
       if(c == '-') { rotate(-PI/2); }
@@ -136,9 +136,9 @@ void doDragon() {
     char c = dragon[level].charAt(i);
     float len = 8;
     if(c == 'F') {
-      line(0,0, 0,-8);
+      line(0,0, 0,-len);
       //bezier(0,0, -len/2,-len/2, len/2,-len/2, 0,-len);
-      translate(0,-8);
+      translate(0,-len);
     }
     if(c == '-') { rotate(-PI/2); }
     if(c == '+') { rotate(PI/2); }

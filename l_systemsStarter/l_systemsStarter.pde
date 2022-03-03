@@ -47,7 +47,16 @@ void draw() {
   background(0);
   stroke(255);
   strokeWeight(3);
+  translate(width/2,height);
   
+  float len = height / pow(3,level);
+  for(int i=0; i<koch[level].length(); i++) {
+    char c = koch[level].charAt(i);
+    if(c == 'F') { line(0,0, 0,-len); translate(0,-len); }
+    if(c == '-') { rotate(-PI/3); }
+    if(c == '+') { rotate(PI/3); }
+    
+  }
   
 }
 

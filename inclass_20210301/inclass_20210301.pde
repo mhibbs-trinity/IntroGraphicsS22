@@ -8,7 +8,7 @@ void circ(float x, float y, float r) {
     circ(x-r,y, r/2);
     circ(x+r,y, r/2);
     circ(x,y-r, r/2);
-    circ(x,y+r, r/2);
+    //circ(x,y+r, r/2);
   }
 }
 
