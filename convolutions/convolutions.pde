@@ -3,9 +3,9 @@ PImage copy;
 float[][] kernel;
 
 void setup() {
-  img = loadImage("SundayInPark.jpg");
+  //img = loadImage("SundayInPark.jpg");
   //img = loadImage("alamo.png");
-  //img = loadImage("balloons.png");
+  img = loadImage("balloons.png");
   //img = loadImage("city.png");
   //img = loadImage("MTower.jpg");
   //img = loadImage("orion.png");
@@ -37,10 +37,10 @@ void setup() {
   //copy = convolve(img, blur7);                      
   //copy = convolve(img, diagBlur);
   //copy = convolve(img, diagMotionBlur(21));
-  //copy = convolve(img, motionBlur(21,new PVector(0,1)));
+  //copy = convolve(img, motionBlur(51,new PVector(1,5)));
   
   //copy = convolve(img, squareBlur(11));
-  //copy = convolve(img, horizEdge(5));
+  //copy = convolve(convolve(img, squareBlur(3)), horizEdge(5));
   //copy = convolve(img, vertEdge(5));
   //copy = convolve(img, allEdge(3));
   //copy = convolve(img, sharpen(3));
@@ -118,7 +118,7 @@ float[][] horizEdge(int cols) {
     k[0][i] = -1;
   }
   k[0][cols/2] = cols-1;
-  println(k[0][0] + ":" + k[0][1] + ":" + k[0][2] + ":" + k[0][3] + ":" + k[0][4]);
+  //println(k[0][0] + ":" + k[0][1] + ":" + k[0][2] + ":" + k[0][3] + ":" + k[0][4]);
   return k;
 }
 float[][] vertEdge(int rows) {
