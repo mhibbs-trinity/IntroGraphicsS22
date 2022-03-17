@@ -119,12 +119,13 @@ void draw() {
         line(0,0, 0,-15);
         translate(0,-15);
       }
+      /*
       if(c == '-') rotate(-PI/6);
       if(c == '+') rotate(PI/6);
-      /* Randomized version:
+       Randomized version: */
       if(c == '-') rotate(-random(PI/12, PI/4));
       if(c == '+') rotate(random(PI/12, PI/4));
-      */
+      //*/
       if(c == '[') pushMatrix();
       if(c == ']') popMatrix();
     }
@@ -164,4 +165,8 @@ void keyPressed() {
   if(key == 'd' || key == 'D') { mode = Mode.DRAGON; level = 0; }
   if(key == 't' || key == 'T') { mode = Mode.TREE; level = 0; }
   if(key == 'b' || key == 'B') { mode = Mode.BUSH; level = 0; }
+  
+  if(key == 's') noLoop();
+  if(key == 'g') loop();
+  
 }
