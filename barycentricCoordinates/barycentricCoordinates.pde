@@ -52,9 +52,9 @@ void draw() {
   }
   
   if(mode == Mode.INTERPOLATE) {
-    for(float l1=0f; l1<=1.01f; l1+=0.05) {
-      for(float l2=0f; l2<=1.01f; l2+=0.05) {
-        float l3   = 1 - l1 - l2;
+    for(float l1=0f; l1<=1.01f; l1+=0.01) {
+      for(float l2=0f; l2<=1.01f; l2+=0.01) {
+        float l3 = 1 - l1 - l2;
         
         if(l3 >= -0.01f) {
           PVector pt1 = new PVector(p1.x,p1.y);
