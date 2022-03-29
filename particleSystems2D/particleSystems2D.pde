@@ -3,7 +3,7 @@ PImage fireImg, smokeImg;
 color fireStart, fireEnd;
 color smokeStart, smokeEnd;
 
-int mode = 0; //0 for smoke only, 1 for fire only, 2 for both
+int mode = 1; //0 for smoke only, 1 for fire only, 2 for both
 
 ParticleSystem ps;
 

@@ -58,18 +58,18 @@ void setup() {
   trail = new ArrayList<PVector>();
   
   walls = new ArrayList<FixedWall>();
-  /*
+  
   walls.add(new FixedWall(new PVector(width/2,0), new PVector(0,height/2)));
   walls.add(new FixedWall(new PVector(0,height/2), new PVector(width,height)));
   walls.add(new FixedWall(new PVector(width,height), new PVector(width/2,0)));
-  */
+  
   //walls.add(new FixedWall(new PVector(100,100), new PVector(300,300)));
-  /*
+  
   walls.add(new FixedWall(new PVector(0,0), new PVector(width,0)));
   walls.add(new FixedWall(new PVector(width,0), new PVector(width,height)));
   walls.add(new FixedWall(new PVector(width,height), new PVector(0,height)));
   walls.add(new FixedWall(new PVector(0,height), new PVector(0,0)));
-  */
+  
 }
 
 void draw() {
@@ -78,14 +78,14 @@ void draw() {
   for(FixedWall w : walls) {
     w.display();
   }
-  cs.run();
+  //cs.run();
   //cs.runWithIntersections();
   //cs.runWithWallIntersections(walls);
   //cs.runShowingParticleCollisions();
   //cs.runShowingWallCollisions(walls);
   //cs.runWithWallCollisions(walls);
   //cs.runWithParticleCollisions();
-  //cs.runWithParticleAndWallCollisions(walls);
+  cs.runWithParticleAndWallCollisions(walls);
   //trail.add(bigPart.loc.copy());
   
   stroke(0,255,0);
