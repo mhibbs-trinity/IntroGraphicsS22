@@ -5,22 +5,6 @@ PImage rboy;
 PImage[] frames;
 float[][] kernel;
 
-/*
-void settings() {
-  //img = loadImage("SundayInPark.jpg");
-  img = loadImage("alamo.png");
-  //img = loadImage("balloons.png");
-  //img = loadImage("city.png");
-  //img = loadImage("MTower.jpg");
-  //img = loadImage("orion.png");
-  //img = loadImage("PearlEarring.jpg");
-  //img = loadImage("riverwalk.png");
-  //gimg = loadImage("green_bike.jpg");
-  gimg = loadImage("green_dude.jpg");
-  //img = loadImage("robotBoy_run.jpg");
-  size(img.width,img.height);
-}*/
-
 void setup() {
   //img = loadImage("SundayInPark.jpg");
   img = loadImage("alamo.png");
