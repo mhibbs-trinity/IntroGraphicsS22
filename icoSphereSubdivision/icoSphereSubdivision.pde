@@ -1,22 +1,43 @@
+import peasy.*;
+
+PeasyCam cam;
+
 IcoSphere is;
 float phi = (1 + sqrt(5)) / 2;
+
+PImage img;
 
 void setup() {
   size(500,500,P3D);
   is = new IcoSphere();
+  cam = new PeasyCam(this, 0,0,0, 500);
   
-  translate(width/2,height/2);
+  //img = loadImage("jupiter.jpg");
+  //img = loadImage("earth.jpg");
+  //img = loadImage("grid.png");
+  //img = loadImage("gradient.png");
+  //img = loadImage("city.png");
+  img = loadImage("testPattern.png");
+  
+  //translate(width/2,height/2);
   
   //scale(200);
-  pushMatrix();
+  //pushMatrix();
 }
 
 void draw() {
-  popMatrix();
+  //popMatrix();
   background(0);
-  ambientLight(50,50,50);
+  ambientLight(250,250,250);
   
-  pointLight(255,255,255, mouseX*2 - width,mouseY*2 - height,400);
+  float lightX = 1000 * sin(map(mouseX, 0,width, 0,TWO_PI)) * cos(map(mouseY, 0,height, 0,TWO_PI));
+  float lightY = 1000 * sin(map(mouseX, 0,width, 0,TWO_PI)) * sin(map(mouseY, 0,height, 0,TWO_PI));
+  float lightZ = 1000 * cos(map(mouseY, 0,height, 0,TWO_PI));
+  
+  //pointLight(255,255,255, lightX,lightY,lightZ);//mouseX*2 - width,mouseY*2 - height,400);
+  strokeWeight(10);
+  stroke(255);
+  point(lightX,lightY,lightZ);
   
   strokeWeight(2);
   stroke(255,0,0);
@@ -26,7 +47,7 @@ void draw() {
   stroke(0,0,255);
   line(0,0,-width, 0,0,width);
   
-  pushMatrix();
+  //pushMatrix();
   scale(100);
   
   noStroke();
@@ -64,16 +85,19 @@ void draw() {
     stroke(255,128);
     strokeWeight(1.0/50);
   }
-  is.display();
+  if(keyPressed && key == 'w') textureWrap(REPEAT);
+  else textureWrap(CLAMP);
   
-  popMatrix();
+  is.display(img);
   
+  //popMatrix();
+  /*
   if(mousePressed) {
     if(mouseButton == LEFT) rotateY(float(mouseX-pmouseX)/width);
     if(mouseButton == RIGHT) rotateX(float(mouseY-pmouseY)/height);
-  }
+  }*/
 
-  pushMatrix();
+  //pushMatrix();
 }
 
 void keyPressed() {

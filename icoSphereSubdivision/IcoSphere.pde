@@ -45,6 +45,8 @@ class IcoSphere {
     addTriangle(6,9,3);
     addTriangle(5,9,10);
     addTriangle(4,11,8);
+    
+    createSphericalUVs();
   }
   
   private void addNormalVertex(float a, float b, float c) {
@@ -59,6 +61,20 @@ class IcoSphere {
   private void addTriangle(int a, int b, int c) {
     int[] tarray = {a, b, c};
     mesh.tris.add(tarray);
+  }
+  
+  void createSphericalUVs() {
+    mesh.uvs = new ArrayList<PVector>();
+    for(PVector pt : mesh.verts) {
+      float v = asin(pt.z);
+      float u1 = acos( pt.x / cos(v) );
+      float u2 = asin( pt.y / cos(v) );
+      float u3 = atan2( pt.x, pt.y );
+      if(sin(v) == 0f) { u1 = PI; }
+      
+      PVector uv = new PVector(map(u3,-PI,PI,1,0), (v + HALF_PI) / PI, 0);
+      mesh.uvs.add(uv);
+    }
   }
  
   void subdivideAllTris() {
@@ -115,10 +131,17 @@ class IcoSphere {
     mesh.norms = newNorms;
     mesh.tris = newTris;
     
+    createSphericalUVs();
+    
   }
  
   void display() {
     mesh.display();
+  }
+  
+  void display(PImage img) {
+    textureMode(NORMAL);
+    mesh.display(img);
   } 
   
 }

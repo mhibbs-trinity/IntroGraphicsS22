@@ -6,13 +6,23 @@ class Mesh3D {
   
   Mesh3D() {
     verts = new ArrayList<PVector> ();
-    //uvs = new ArrayList<PVector> ();
+    uvs = new ArrayList<PVector> ();
     norms = new ArrayList<PVector> ();
     tris = new ArrayList<int[]> ();
   }
   
   void display() {
     beginShape(TRIANGLES);
+    for(int[] tri : tris) {
+      //triangleHelper(tri);
+      normTriangleHelper(tri);
+    }
+    endShape();
+  }
+  
+  void display(PImage img) {
+    beginShape(TRIANGLES);
+    texture(img);
     for(int[] tri : tris) {
       //triangleHelper(tri);
       normTriangleHelper(tri);
@@ -62,12 +72,12 @@ class Mesh3D {
   
   private void vertexHelper(int i) {
     PVector v = verts.get(i);
-   // if(uvs.size() >= i) {
-   //   PVector uv = uvs.get(i);
-   //   vertex(v.x,v.y,v.z, uv.x,uv.y);
-   // } else {
+    if(uvs.size() > i) {
+      PVector uv = uvs.get(i);
+      vertex(v.x,v.y,v.z, uv.x,uv.y);
+    } else {
       vertex(v.x, v.y, v.z);
-   // }
+    }
   }
   
 }
