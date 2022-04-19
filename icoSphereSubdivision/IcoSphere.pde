@@ -67,10 +67,10 @@ class IcoSphere {
     mesh.uvs = new ArrayList<PVector>();
     for(PVector pt : mesh.verts) {
       float v = asin(pt.z);
-      float u1 = acos( pt.x / cos(v) );
-      float u2 = asin( pt.y / cos(v) );
+      //float u1 = acos( pt.x / cos(v) );
+      //float u2 = asin( pt.y / cos(v) );
       float u3 = atan2( pt.x, pt.y );
-      if(sin(v) == 0f) { u1 = PI; }
+      //if(sin(v) == 0f) { u1 = PI; }
       
       PVector uv = new PVector(map(u3,-PI,PI,1,0), (v + HALF_PI) / PI, 0);
       mesh.uvs.add(uv);

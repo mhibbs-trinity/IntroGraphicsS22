@@ -1,10 +1,12 @@
+import toxi.geom.Vec3D;
 
+Vec3D vec;
 
 void setup() {
   size(500,500,P3D);
-  translate(width/2,height/2, 0);
-  rotateY(PI/6);
-  rotateX(-PI/6);
+  
+  vec = new Vec3D(0,300,300);
+  
   pushMatrix();
 }
 
@@ -13,6 +15,11 @@ void draw() {
   lights();
   background(0);
   
+  translate(0.1,0.1,0);
+  
+  //translate(width/2,height/2, 0);
+  //rotateX(map(mouseY, 0,width, 0,TWO_PI));
+  //rotateY(map(mouseX, 0,width, 0,TWO_PI));
    
   float lightX = mouseX - width/2;
   float lightY = mouseY - height/2;
@@ -38,5 +45,11 @@ void draw() {
   noStroke();
   sphere(100);
   
+  pushMatrix();
+}
+
+void mouseDragged() {
+  popMatrix();
+  rotateX(map(pmouseY-mouseY, 0,width, 0,TWO_PI));
   pushMatrix();
 }

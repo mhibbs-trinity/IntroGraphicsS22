@@ -59,8 +59,8 @@ class BSPTree {
     }
     void printPreOrderTraverse() {
       //print("["+t.a+","+t.b+","+t.c+"]");
-      if(back != null)  { print("<-"); back.printPreOrderTraverse(); }
-      if(front != null) { print("->"); front.printPreOrderTraverse(); }
+      if(back != null)  { back.printPreOrderTraverse(); }
+      if(front != null) { front.printPreOrderTraverse(); }
     }
     
     /*

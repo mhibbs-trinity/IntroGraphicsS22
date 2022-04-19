@@ -6,8 +6,8 @@ Mode mode = Mode.BOXES;
 
 Cube centralBox = new Cube(new PVector(0,0,0), 200);
 Cube offsetBox = new Cube(new PVector(100,100,0), 150);
-Sphere centralSphere = new Sphere(new PVector(0,0,0), 150, 8);
-Sphere leftSphere = new Sphere(new PVector(-120,0,0), 80, 6);
+Sphere centralSphere = new Sphere(new PVector(0,0,0), 150, 20);
+Sphere leftSphere = new Sphere(new PVector(-120,0,0), 80, 8);
 
 Mesh3D boxesIntersect = centralBox.intersect(offsetBox);
 Mesh3D boxesDifference = centralBox.difference(offsetBox);

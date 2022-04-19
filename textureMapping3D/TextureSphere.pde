@@ -14,8 +14,8 @@ class TextureSphere {
     texture(img);
     float uStep = 2*PI/nSegs;
     float vStep = PI/nSegs;
-    for(float u=0; u<2*PI-uStep; u+=uStep) {
-      for(float v=-PI/2; v<PI/2-vStep; v+=vStep) {
+    for(float u=0; u<2*PI; u+=uStep) {
+      for(float v=-PI/2; v<PI/2; v+=vStep) {
       //for(float v=-200; v<200; v+=vStep) {  
         /*
         vertex(xpos(u,v), ypos(u,v), zpos(u,v), map(u, 0,2*PI, img.width,0), map(v, -PI/2,PI/2, 0,img.height));
