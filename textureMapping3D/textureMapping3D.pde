@@ -9,7 +9,7 @@ void setup() {
   img = loadImage("jupiter.jpg");
   //img = loadImage("gray.jpg");
   //img = loadImage("grid.png");
-  ts = new TextureSphere(180, 30, img);
+  ts = new TextureSphere(180, 100, img);
 }
 
 void draw() {
@@ -20,7 +20,7 @@ void draw() {
   strokeWeight(10);
   stroke(255);
   point(mouseX,mouseY,200);
-  ambientLight(50,50,50);
+  ambientLight(150,150,150);
   
   noStroke();
   fill(255);
@@ -40,10 +40,12 @@ void draw() {
   
   //emissive(0,0,50);
   //specular(255,0,0);
+  
   translate(250,250);
-  rotateX(-PI/2);
-  rotateZ(rot);
+  //rotateX(-PI/2);
+  rotateY(rot);
   ts.display();
+  
 }
 
 void mouseDragged() {

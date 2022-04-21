@@ -29,7 +29,7 @@ void draw() {
     for(float x=200; x<=600; x+=200) {
       for(float y=200; y<=600; y+=200) {
         shininess(shine);
-        shine *= 2;
+        
         
         pushMatrix();
         translate(x,y,0);
@@ -38,6 +38,8 @@ void draw() {
         shininess(0);
         text("Shine = " + shine, 0,0,0);
         popMatrix();
+        
+        shine *= 4;
 
       }
     }

@@ -10,7 +10,7 @@ class Mesh3D {
   
   BSPTree toBSPTree() {
     BSPTree tree = new BSPTree();
-    //java.util.Collections.shuffle(tris);
+    java.util.Collections.shuffle(tris);
     for(int[] tri : tris) {
       tree.add(new MyTri(verts.get(tri[0]),verts.get(tri[1]),verts.get(tri[2])));
     }

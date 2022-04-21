@@ -28,13 +28,13 @@ void setup() {
 void draw() {
   //popMatrix();
   background(0);
-  ambientLight(250,250,250);
+  ambientLight(150,150,150);
   
   float lightX = 1000 * sin(map(mouseX, 0,width, 0,TWO_PI)) * cos(map(mouseY, 0,height, 0,TWO_PI));
   float lightY = 1000 * sin(map(mouseX, 0,width, 0,TWO_PI)) * sin(map(mouseY, 0,height, 0,TWO_PI));
   float lightZ = 1000 * cos(map(mouseY, 0,height, 0,TWO_PI));
   
-  //pointLight(255,255,255, lightX,lightY,lightZ);//mouseX*2 - width,mouseY*2 - height,400);
+  pointLight(255,255,255, lightX,lightY,lightZ);//mouseX*2 - width,mouseY*2 - height,400);
   strokeWeight(10);
   stroke(255);
   point(lightX,lightY,lightZ);
