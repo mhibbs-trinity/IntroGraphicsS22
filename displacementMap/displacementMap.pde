@@ -4,18 +4,14 @@ PImage colTex;
 PImage htTex;
 PImage normTex;
 float rot;
-float dispAmt = 0;
 
-int mode = 0; //Set to 1 for displacement mapping; to 0 for bump mapping
+int mode = 1; //Set to 1 for displacement mapping; to 0 for bump mapping
 
 void setup() {
   size(500,500, P3D);
   noStroke();
-  //colTex = loadImage("cross_color.jpg");
-  //htTex = loadImage("cross_height.jpg");
-  //normTex = loadImage("cross_normal.jpg");
-
   colTex = loadImage("pebble_color.png");
+  //colTex = loadImage("gray.png");
   htTex = loadImage("pebble_height.png");
   normTex = loadImage("pebble_normal.png");
 
@@ -45,15 +41,9 @@ void draw() {
   noStroke();
   fill(255);
   shader(bumpy);
-  textureMode(NORMAL);
-  
-  if(keyPressed) {
-    if(keyCode == UP) dispAmt += 1.0;
-    if(keyCode == DOWN && dispAmt > 0) dispAmt -= 1.0;
-  }
   
   if(mode == 1) {
-    bumpy.set("scale", dispAmt);
+    bumpy.set("scale", float(mouseY)/height * 100.0);
   
     float lo = 50.0;
     float hi = 450.0;
@@ -65,10 +55,10 @@ void draw() {
     for(float u=0; u<1.0; u+=step) {
       for(float v=0; v<1.0; v+=step) {
         normal(0,0,1);
-        vertex(       lo+u*diff,        lo+v*diff, -100,        u,        v);
-        vertex(       lo+u*diff, lo+(v+step)*diff, -100,        u, (v+step));
-        vertex(lo+(u+step)*diff, lo+(v+step)*diff, -100, (u+step), (v+step));
-        vertex(lo+(u+step)*diff,        lo+v*diff, -100, (u+step),        v);
+        vertex(       lo+u*diff,        lo+v*diff, -100,        u*1024,        v*1024);
+        vertex(       lo+u*diff, lo+(v+step)*diff, -100,        u*1024, (v+step)*1024);
+        vertex(lo+(u+step)*diff, lo+(v+step)*diff, -100, (u+step)*1024, (v+step)*1024);
+        vertex(lo+(u+step)*diff,        lo+v*diff, -100, (u+step)*1024,        v*1024);
       }
     }
     endShape();
@@ -76,11 +66,11 @@ void draw() {
   else if(mode == 0) {
     beginShape(QUAD);
     texture(colTex);
-    normal(0,0,1);
-    vertex( 50, 50,0, 0,0);
-    vertex( 50,450,0, 0,1);
-    vertex(450,450,0, 1,1);
-    vertex(450, 50,0, 1,0);
+    //normal(0,0,1);
+    vertex( 50, 50,0,    0,   0);
+    vertex( 50,450,0,    0,1024);
+    vertex(450,450,0, 1024,1024);
+    vertex(450, 50,0, 1024,   0);
     endShape();
   }
 }
