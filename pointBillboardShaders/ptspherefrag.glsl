@@ -31,11 +31,11 @@ void main() {
   float intense = max(0.0, dot(normal, litDir));
 
   //gl_FragColor = vec4(litDir,1.0);
-  //gl_FragColor = vec4(normal, 1.0);
-  gl_FragColor = vec4(vec3(intense),1.0) * vertColor;
+  gl_FragColor = vec4(normal, 1.0);
+  //gl_FragColor = vec4(vec3(intense),1.0) * vertColor;
 
-  //vec4 dpos = eyePos;
-  //dpos.z += z*weight;
-  //dpos = projection * dpos;
-  //gl_FragDepth = (dpos.z / dpos.w + 1.0) / 2.0;
+  vec4 dpos = eyePos;
+  dpos.z += z*weight;
+  dpos = projection * dpos;
+  gl_FragDepth = (dpos.z / dpos.w + 1.0) / 2.0;
 }

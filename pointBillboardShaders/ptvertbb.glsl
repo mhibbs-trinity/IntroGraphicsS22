@@ -11,9 +11,10 @@ attribute vec2 offset;
 
 varying vec4 vertColor;
 varying vec2 texCoord;
+varying vec4 eyePos;
 
 void main() {
-  vec4 eyePos = modelview * vertex;
+  eyePos = modelview * vertex;
   vec4 clip = projection * eyePos;
 
   gl_Position = clip + projection * vec4(offset, 0, 0);

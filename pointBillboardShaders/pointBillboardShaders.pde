@@ -7,15 +7,15 @@ float rot = 0;
 
 void setup() {
   size(500,500,P3D);
-  //img = loadImage("tree1.png");
-  img = loadImage("cloud1.png");
+  img = loadImage("tree1.png");
+  //img = loadImage("cloud1.png");
   //img = loadImage("billboard.jpg");
   
   pts = new ArrayList<PVector>();
   //pointShade = loadShader("ptfrag.glsl","ptvert.glsl");
-  //pointShade = loadShader("ptfragbb.glsl","ptvertbb.glsl");
+  pointShade = loadShader("ptfragbb.glsl","ptvertbb.glsl");
   //pointShade = loadShader("ptcircfrag.glsl","ptcircvert.glsl");
-  pointShade = loadShader("ptspherefrag.glsl","ptspherevert.glsl");
+  //pointShade = loadShader("ptspherefrag.glsl","ptspherevert.glsl");
   pointShade.set("weight", weight);
   pointShade.set("sprite", img);
 }
