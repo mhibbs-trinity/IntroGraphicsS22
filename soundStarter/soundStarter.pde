@@ -15,7 +15,7 @@ float eRadius;
 void setup() {
   size(1024,400);
   minim = new Minim(this);
-  //song = minim.loadFile("derezzed.mp3", 1024);
+  song = minim.loadFile("derezzed.mp3", 1024);
   //song = minim.loadFile("fall.mp3", 1024);
   //song = minim.loadFile("jane.mp3", 1024);
   //song = minim.loadFile("felt.mp3", 1024);
@@ -32,6 +32,14 @@ void setup() {
 
 void draw() {
   background(0);
+  
+  stroke(255);
+  strokeWeight(3);
+  float bufSz = song.bufferSize();
+  for(int i=0; i<bufSz-1; i++) {
+    line(i, map(song.mix.get(i), -1,1, height,0),
+       i+1, map(song.mix.get(i+1), -1,1, height,0));
+  }
   
 }
 
