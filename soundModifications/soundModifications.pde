@@ -14,8 +14,8 @@ void setup() {
   minim = new Minim(this);
   
   //String filename = "derezzed.mp3";
-  //String filename = "Spongebob.mp3";
-  String filename = "StevenUniverse.mp3";
+  String filename = "Spongebob.mp3";
+  //String filename = "StevenUniverse.mp3";
   //String filename = "GameOfThrones.mp3";
   //String filename = "GoodFight.mp3";
   //String filename = "DoctorWho.mp3";
@@ -40,13 +40,13 @@ void setup() {
   
   forward = minim.loadSample(filename);
   //backward= forward;
-  backward= reverse(forward);
+  //backward= reverse(forward);
   //backward= everyOtherSample(forward);
   //backward= doubleSamples(forward);
   //backward= doubleSamples(reverse(forward));
   //backward= everyOtherSample(reverse(forward));
   //backward= resampleAtRate(forward, 0.3f);
-  //backward= resampleRateInterpolation(forward, 0.8f, 1.4f);
+  backward= resampleRateInterpolation(forward, 0.8f, 1.4f);
   backward.trigger();
 }
 
