@@ -12,7 +12,7 @@ struct Sphere {
 };
 const int numSpheres = 1;
 Sphere spheres[numSpheres];
-
+ 
 vec3 litPos = vec3(-3, -3, 1);
 
 /* Intersection and normal calculation for a sphere */
