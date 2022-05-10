@@ -4,8 +4,8 @@ PImage img; //dummy image required to get texture coordinates
 PImage sphTexture;
 PVector camPos;
 
-enum Mode { TEXCOORD, SIMPLE, PLANES, PLANESHADOW, MULTISPHERE, ANTIALIAS };
-Mode mode = Mode.ANTIALIAS;
+enum Mode { TEXCOORD, SIMPLE, PLANES, PLANESHADOW, MULTISPHERE, ANTIALIAS, REFLECTIONS };
+Mode mode = Mode.TEXCOORD;
 HashMap<Character, Mode> keyMap;
 void keyPressed() {
   if(keyMap.containsKey(key)) { mode = keyMap.get(key); }
@@ -23,6 +23,7 @@ void setup() {
   keyMap.put('p',Mode.PLANES);
   keyMap.put('s',Mode.PLANESHADOW);
   keyMap.put('a',Mode.ANTIALIAS);
+  keyMap.put('r',Mode.REFLECTIONS);
 
   //Making the dummy image
   img = createImage(1,1,RGB);
@@ -64,6 +65,10 @@ void resetup() {
   }
   if(mode == Mode.ANTIALIAS) {
     shade = loadShader("antialiasedScene.glsl","rtvert.glsl");
+    shade.set("sphTex", sphTexture);
+  }
+  if(mode == Mode.REFLECTIONS) {
+    shade = loadShader("reflections.glsl","rtvert.glsl");
     shade.set("sphTex", sphTexture);
   }
   
