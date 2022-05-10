@@ -138,8 +138,11 @@ void main() {
   if (hitSphere > 0.0 && hitSphere < hitPlane) {
     hitPt = ro + hitSphere * rd;
     hitNorm = nSphere(hitPt, spheres[hitSphereID].pt);
-    //hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
-    hitCol = spheres[hitSphereID].col;
+    if(hitSphereID == 0) {
+      hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
+    } else {
+      hitCol = spheres[hitSphereID].col;
+    }
   } else { //Otherwise, a plane is closest
     hitPt = ro + hitPlane * rd;
     hitNorm = planes[hitPlaneID].norm;

@@ -34,7 +34,8 @@ void setup() {
   //Load texture images
   //sphTexture = loadImage("stripes.png");
   //sphTexture = loadImage("venus.jpg");
-  sphTexture = loadImage("grid.png");
+  //sphTexture = loadImage("grid.png");
+  sphTexture = loadImage("swirl.png");
   
   //Setup the initial camera position
   camPos = new PVector(0,0,5);

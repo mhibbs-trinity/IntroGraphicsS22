@@ -142,8 +142,11 @@ vec3 specularRayOne(in vec3 ro, in vec3 rd) {
   if (hitSphere > 0.0 && hitSphere < hitPlane) {
     hitPt = ro + hitSphere * rd;
     hitNorm = nSphere(hitPt, spheres[hitSphereID].pt);
-    //hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
-    hitCol = spheres[hitSphereID].col;
+    if(hitSphereID == 0) {
+      hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
+    } else {
+      hitCol = spheres[hitSphereID].col;
+    }
     difFrac = spheres[hitSphereID].diffuse;
     specFrac = spheres[hitSphereID].specular;
     ambFrac = spheres[hitSphereID].ambient;
@@ -195,8 +198,11 @@ vec3 determineColorOfRay(in vec3 ro, in vec3 rd) {
   if (hitSphere > 0.0 && hitSphere < hitPlane) {
     hitPt = ro + hitSphere * rd;
     hitNorm = nSphere(hitPt, spheres[hitSphereID].pt);
-    //hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
-    hitCol = spheres[hitSphereID].col;
+    if(hitSphereID == 0) {
+      hitCol = texture2D(sphTex, uvSphere(hitPt, spheres[hitSphereID].pt)).xyz;
+    } else {
+      hitCol = spheres[hitSphereID].col;
+    }
     difFrac = spheres[hitSphereID].diffuse;
     specFrac = spheres[hitSphereID].specular;
     ambFrac = spheres[hitSphereID].ambient;
@@ -245,10 +251,10 @@ void main() {
   planes[4] = Plane(vec3( 0, 2, 0), vec3( 0,-1, 0), vec3(0.9,0.5,0.5), 0.8,0,0.2);
   planes[5] = Plane(vec3( 2, 0, 0), vec3(-1, 0, 0), vec3(0.6,0.9,0.1), 0.8,0,0.2);
 
-  spheres[0] = Sphere(vec4(-1,-1,-15,1), vec3(0.9,0.6,0.2), 0.8,0,0.2);
-  spheres[1] = Sphere(vec4( 1, 1,-12,0.75), vec3(0.5,0.9,0.8), 0.4,0.4,0.2);
+  spheres[0] = Sphere(vec4(-1,-1,-15,1), vec3(0.9,0.6,0.2), 0.7,0.1,0.1);
+  spheres[1] = Sphere(vec4( 1, 1,-12,0.75), vec3(0.5,0.9,0.8), 0.6,0.3,0.1);
   spheres[2] = Sphere(vec4( 0,-1,-18,0.35), vec3(0.2,0.4,0.7), 0.8,0,0.2);
-  spheres[3] = Sphere(vec4(-0.5,1.2,-11,0.4), vec3(0.6,0.6,0.3), 0.8,0,0.2);
+  spheres[3] = Sphere(vec4(-0.5,1.2,-11,0.4), vec3(0.6,0.6,0.3), 0,1,0);
   spheres[4] = Sphere(vec4(litPos, 0.1), vec3(1.0), 0,0,1);
 
   /* Ray initialization */
